@@ -6,5 +6,3 @@ The team members are **Miao Fangran**, **Wang Xizhi** and **Wang Zhuo**.
 And the advisor is **Chen Jixiang**.
 
 The official website of MCM is http://www.comap.com/undergraduate/contests/mcm/login.php.
-
-test
