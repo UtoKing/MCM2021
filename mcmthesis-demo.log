@@ -1,10 +1,10 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2021.1.16)  3 FEB 2021 11:18
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2021.1.16)  3 FEB 2021 20:49
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/Users/utoking/Downloads/mcmthesis-demo/mcmthesis-demo
-(/Users/utoking/Downloads/mcmthesis-demo/mcmthesis-demo.tex
+**/Users/utoking/Desktop/MCM2021/mcmthesis-demo
+(/Users/utoking/Desktop/MCM2021/mcmthesis-demo.tex
 LaTeX2e <2020-02-02> patch level 5
 L3 programming layer <2020-03-06> (./mcmthesis.cls
 Document Class: mcmthesis 2021/01/05 v6.3.1 The Thesis Template Designed For MCM/ICM
@@ -707,18 +707,14 @@ Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 257.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 257.
 Package rerunfilecheck Info: File `mcmthesis-demo.out' has not changed.
 (rerunfilecheck)             Checksum: 81D7AFFA933C607A1D8511F3231571AE;1168.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
  15566 strings out of 479418
- 228999 string characters out of 5884585
- 872666 words of memory out of 5000000
+ 228972 string characters out of 5884585
+ 872662 words of memory out of 5000000
  32716 multiletter control sequences out of 15000+600000
  607876 words of font info for 120 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 47i,13n,99p,909b,2074s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 47i,13n,99p,900b,2074s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on mcmthesis-demo.pdf (10 pages).
