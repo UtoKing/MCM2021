@@ -19,7 +19,7 @@ You may delete these instructions as you begin to type your report here.
 Follow us @COMAPMath on Twitter or COMAPCHINAOFFICIAL on Weibo for the most up to date contest information.
 
 \begin{keywords}
-Matlab; Mathematical modelling.
+Python; Mathematical modelling.
 \end{keywords}
 \end{abstract}
 \maketitle
@@ -48,22 +48,55 @@ Matlab; Mathematical modelling.
 \section{Preparation of the Models}
 \subsection{Assumptions}
 Here are our assumptions:
+
+For a single species of fungus\cite{Lustenhouwer11551}:
 \begin{itemize}
-  \item Under an ideal environment, which means that the temperature is perfect and the food is sufficient, the decomposition rate of fungis is mainly related to the extension rate and the moisture trade-off.
+  \item Under an ideal environment, which means that the temperature is perfect and the food is sufficient, the decomposition rate of fungi is mainly related to the extension rate and the moisture trade-off.
   \item The decomposition rate has a linear relationship with extension rate.
   \item The logarithm of decomposition rate has a linear relationship with moisture trade-off.
-  \item If the environment is not so perfect, we introduce two parameters to adjust the decomposition rate---temperature and fungi's proportion.
+  \item If the environment is not so perfect, we introduce one parameter to adjust the decomposition rate---temperature.
 \end{itemize}
 
 With such condition, we can conclude two partial differential equations:
+\begin{equation}
+  \label{eq6}
+  \left\{
+  \begin{aligned}
+  &\frac{\partial f}{\partial x}&=C_1\\
+  &\frac{\partial (\log f)}{\partial y}&=C_2
+  \end{aligned}
+  \right.
+\end{equation}
 
+Where $f$ represents the decomposition rate, $x$ represents extension rate and $y$ represents the moisture trade-off.
+$C_1,C_2$ represents the linear slope between the independent variables and dependent variables.
+
+Solve the equation, we acquire that:
+\begin{equation}
+  f=Ax\cdot e^{By}
+\end{equation}
+where $A$ and $B$ are constants, which varies with the type of fungi.
+
+To adjust the decomposition rate with temperature, we introduce the Temperature function, which is $u(T)$.
+Thus:
+\begin{equation}
+  f=u(T)\cdot Ax\cdot e^{By}
+\end{equation}
+
+When it comes to multiple fungi, we put forward our fifth assumption:
+\begin{itemize}
+  \item The decomposition rate will change when the proportion of fungi changes.
+\end{itemize}
+Then, we also introduce another function of one specific fungus' proportion:
+\begin{equation}
+  f=v(P)\cdot u(T)\cdot Ax\cdot e^{By}
+\end{equation}
 
 \section{The Models}
 
 \section{Strengths and weaknesses}
 
 \subsection{Strengths}
-\cite{bush2006mathematical}
 
 
 % \begin{thebibliography}{99}
@@ -82,15 +115,10 @@ With such condition, we can conclude two partial differential equations:
 
 \section{First appendix}
 
-Here are simulation programmes we used in our model as follow.\\
-
-\textbf{\textcolor[rgb]{0.98,0.00,0.00}{Input matlab source:}}
-\lstinputlisting[language=Matlab]{./code/mcmthesis-matlab1.m}
-
 \section{Second appendix}
 
-some more text \textcolor[rgb]{0.98,0.00,0.00}{\textbf{Input C++ source:}}
-\lstinputlisting[language=C++]{./code/mcmthesis-sudoku.cpp}
-
+% some more text \textcolor[rgb]{0.98,0.00,0.00}{\textbf{Input C++ source:}}
+% \lstinputlisting[language=C++]{./code/mcmthesis-sudoku.cpp}
+\lstinputlisting[language=python]{./code/Fungi_2.py}
 \end{appendices}
 \end{document}
