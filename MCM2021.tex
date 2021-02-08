@@ -9,8 +9,6 @@
 \date{\today}
 \begin{document}
 \begin{abstract}
-Use this template to begin typing the first page (summary page) of your electronic report. This template uses a 12-point Times New Roman font. Submit your paper as an Adobe PDF electronic file (e.g. 1111111.pdf), typed in English, with a readable font of at least 12-point type.
-
 Do not include the name of your school, advisor, or team members on this or any page.
 
 Papers must be within the 25 page limit.
@@ -39,58 +37,34 @@ Matlab; Mathematical modelling.
 % \end{memo}
 %%
 \section{Introduction}
-\subsection{Restatement of The Problem}
+\subsection{Problem Background}
 
-\subsection{Analysis of The Problem}
+\subsection{Literature Review}
 
+\subsection{Our work}
+
+
+
+\section{Preparation of the Models}
 \subsection{Assumptions}
+Here are our assumptions:
+\begin{itemize}
+  \item Under an ideal environment, which means that the temperature is perfect and the food is sufficient, the decomposition rate of fungis is mainly related to the extension rate and the moisture trade-off.
+  \item The decomposition rate has a linear relationship with extension rate.
+  \item The logarithm of decomposition rate has a linear relationship with moisture trade-off.
+  \item If the environment is not so perfect, we introduce two parameters to adjust the decomposition rate---temperature and fungi's proportion.
+\end{itemize}
+
+With such condition, we can conclude two partial differential equations:
 
 
-
-\section{The Buildup of The model and Calculating}
-From what is analyzed before, we can conclude that:
-\begin{equation}
-  \frac{\partial (FR)}{\partial (ER)} =C_1
-\end{equation}
-\begin{equation}
-  \frac{\partial \ln(FR) }{\partial M} =C_2
-\end{equation}
-
-\section{The Model Results}
-
-
-\section{Validating the Model}
-
-\section{Conclusions}
-
-\section{A Summary}
-
-\section{Evaluate of the Mode}
+\section{The Models}
 
 \section{Strengths and weaknesses}
 
-\begin{quotation}
-  test
-
-  test
-
-  test!
-
-  test.
-\end{quotation}
-
 \subsection{Strengths}
-\begin{itemize}
-\item \textbf{Applies widely}\\
-This  system can be used for many types\cite{bush2006mathematical} of airplanes, and it also
-solves the interference during  the procedure of the boarding
-airplane,as described above we can get to the  optimization
-boarding time.We also know that all the service is automate.
-\item \textbf{Improve the quality of the airport service}\\
-Balancing the cost of the cost and the benefit, it will bring in
-more convenient  for airport and passengers.It also saves many
-human resources for the airline. \item \textbf{}
-\end{itemize}
+\cite{bush2006mathematical}
+
 
 % \begin{thebibliography}{99}
 % \bibitem{1} D.~E. KNUTH   The \TeX{}book  the American
@@ -108,18 +82,6 @@ human resources for the airline. \item \textbf{}
 
 \section{First appendix}
 
-In addition, your report must include a letter to the Chief Financial Officer (CFO) of the Goodgrant Foundation, Mr. Alpha Chiang, that describes the optimal investment strategy, your modeling approach and major results, and a brief discussion of your proposed concept of a return-on-investment (ROI). This letter should be no more than two pages in length.
-
-\begin{letter}{Dear, Mr. Alpha Chiang}
-
-
-\vspace{\parskip}
-
-Sincerely yours,
-
-Your friends
-
-\end{letter}
 Here are simulation programmes we used in our model as follow.\\
 
 \textbf{\textcolor[rgb]{0.98,0.00,0.00}{Input matlab source:}}
@@ -132,15 +94,3 @@ some more text \textcolor[rgb]{0.98,0.00,0.00}{\textbf{Input C++ source:}}
 
 \end{appendices}
 \end{document}
-%% 
-%% This work consists of these files mcmthesis.dtx,
-%%                                   figures/ and
-%%                                   code/,
-%% and the derived files             mcmthesis.cls,
-%%                                   mcmthesis-demo.tex,
-%%                                   README,
-%%                                   LICENSE,
-%%                                   mcmthesis.pdf and
-%%                                   mcmthesis-demo.pdf.
-%%
-%% End of file `mcmthesis-demo.tex'.
