@@ -5,14 +5,21 @@
         titlepage = true, abstract = true}
 \usepackage{newtxtext}%\usepackage{palatino}
 \usepackage{indentfirst}
+\usepackage{float}
 \title{The Fungi Decomposition Rate Model}
 \author{Miao Fangran, Wang Xizhi, Wang Zhuo}
 \date{\today}
 \begin{document}
 \begin{abstract}
-
+  Question A of the Mathematical Modeling Competition of 2021 is A question about fungi. 
+  Starting from fungi decomposition of landing plants, we are required to build A mathematical model to describe the decomposition of ground litter and wood fiber through fungal activities in the presence of a variety of fungi. 
+  Provides model analysis and describes the interactions between different types of fungi. 
+  This includes predictions of the relative strengths and weaknesses of each species and of combinations of species that are likely to persist. 
+  Describe how the diversity of a fungal community within a system affects the overall efficiency of the system in decomposing litter on the ground.
+  At the same time, we found many complex and effective and correct data, obtained our final mathematical formula through partial differential equations, and obtained models and images with tools such as MATLAB and Python, which were scientific and effective.
+  The results clearly show that the decomposition rate of bacteria increases steadily at the beginning, and then after the density of species is saturated, the decomposition rate begins to decline rapidly.
 \begin{keywords}
-Python; Mathematical modelling; Fungi.
+  Fungi; decomposition rate; MATLAB; python; Differential equation
 \end{keywords}
 \end{abstract}
 \maketitle
@@ -115,7 +122,7 @@ Thus, the last assumption is:
 \begin{itemize}
   \item Every fungus decomposition rate can be measured by the amount of carbon dioxide released, and can also be translated into the mass loss of the raw material.
 \end{itemize}
-After that, we re-write $f$ in the form of $dm/dt$, where $m$ representsLustenhouwer11551 mass and $t$ represents time.
+After that, we re-write $f$ in the form of $dm/dt$, where $m$ represents mass and $t$ represents time.
 
 \subsection{Data Collection}
 It is really hard to collect data for there are a lot of literature with different measurement indexes.
@@ -139,13 +146,74 @@ To build up the model, we figure out that it is easy to use object-oriented prog
 
 We firstly set different objects for fungi.
 The fungi itself have many attributes: the inherent coefficients $A$ and $B$, the extension rate, the decomposition rate, the number of fungi.
+After setting the extension rate, we can get the decomposition rate and the number easily.
 
+Then we set up the objects for environment:
+The environment contains the following attributes: the moisture, temperature and wood number which represents the content of lignocellulosic.
+
+After the interaction of the fungi and environment, we can get the curve of the rate of decomposition.
 
 \subsection{Model 1}
 In this model, we try to figure out the decomposition rate of one specific fungus against time under proper temperature. 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{figures/Model 1.png}
+\end{figure}
+We can conclude that the decomposition rate will increase as time goes on, for the number of fungus is increasing.
+But when the number is too large, the content of lignocellulosic can't meet the fungus' requirement.
+Then, the decomposition rate decreases.
 
 \subsection{Model 2}
 In this model, we try to figure out the interactions between the fungi.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{figures/Model 2.png}
+\end{figure}
+We can conclude that almost all the fungi will experience the same process as model 1.
+But the difference is that their density varies greatly.
+Since in the competition within the population, one party may always become the dominant party, so that the number will occupy the majority.
+
+\subsection{Model 3}
+In this model, we try to figure out the interactions with the temperature.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{figures/Model 3.png}
+\end{figure}
+
+We simulate the temperature from proper temperature to the low one and then to the high one.
+We can still see that fungus 2's decomposition rate decrease obviously.
+In the origin model, we set fungus 2 to be sensitive to the temperature while fungus 1 not.
+
+\newpage
+\subsection{Model 4}
+In this model, we want to figure out the outside environment, such as dried, wet environment.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.6\textwidth]{figures/Model 4.png}
+  \caption{The extremely dried environment}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.6\textwidth]{figures/Model 5.png}
+  \caption{The dried environment}
+\end{figure}
+The decomposition rates become the same as the environment get drier.
+(Notice that the maximum of y-axis is 25)
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.6\textwidth]{figures/Model 6.png}
+  \caption{The extremely wet environment}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.6\textwidth]{figures/Model 2.png}
+  \caption{The wet environment}
+\end{figure}
+The decomposition rate become higher as the environment get wetter.
+(Notice that the maximum of y-axis is 50)
 
 \section{Strengths and weaknesses}
 
@@ -165,6 +233,7 @@ At the same time, we found many complex and effective and correct data, obtained
   For instance, the light intensity can influence.
   \item We were only looking at fungi that break down carbon, however, there are also fungi can break down nitrogen.
   \item The shape of the colony may also affect the decomposition rate.
+  \item We only consider the inner influence within the single population---fungi. We can't consider other living things' influence.
 \end{itemize}
 
 \medskip
@@ -172,11 +241,14 @@ At the same time, we found many complex and effective and correct data, obtained
 \bibliographystyle{unsrt}
 \bibliography{references}
 
+\newpage
 
 \begin{appendices}
 
 \section{First appendix}
 
+
+\newpage
 \section{Second appendix}
 
 % some more text \textcolor[rgb]{0.98,0.00,0.00}{\textbf{Input C++ source:}}
