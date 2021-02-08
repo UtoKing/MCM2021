@@ -4,22 +4,15 @@
         sheet = true, titleinsheet = true, keywordsinsheet = true,
         titlepage = true, abstract = true}
 \usepackage{newtxtext}%\usepackage{palatino}
-\title{The XXX problem}
+\usepackage{indentfirst}
+\title{The Fungi Decomposition Rate Model}
 \author{Miao Fangran, Wang Xizhi, Wang Zhuo}
 \date{\today}
 \begin{document}
 \begin{abstract}
-Do not include the name of your school, advisor, or team members on this or any page.
-
-Papers must be within the 25 page limit.
-
-Be sure to change the control number and problem choice above.
-You may delete these instructions as you begin to type your report here.
-
-Follow us @COMAPMath on Twitter or COMAPCHINAOFFICIAL on Weibo for the most up to date contest information.
 
 \begin{keywords}
-Python; Mathematical modelling.
+Python; Mathematical modelling; Fungi.
 \end{keywords}
 \end{abstract}
 \maketitle
@@ -38,11 +31,34 @@ Python; Mathematical modelling.
 %%
 \section{Introduction}
 \subsection{Problem Background}
+Carbon cycle is a significant process in biosphere. 
+It is the material circulation chain between the inorganic environment and organic organisms that keeps the balance of carbon dioxide in the atmosphere. 
+The breakdown of organic material is a key component of the carbon cycle. 
+It describes the exchange of carbon throughout the geochemical cycle, where the microorganisms play an important role. 
+Fungi is a typical microorganism which is vital to decompose the plant material and woody fiber. 
+It is significant to do meticulous study to fungus’ decomposition to the environment.
 
 \subsection{Literature Review}
+Fungal ecology is believed to play a crucial role in shaping Earth’s ecosystems because of fungi’s ability to recycle nutrients in the system as decomposers\cite{Fricker2017The}, provide resources as symbionts of the majority of land plants\cite{Treseder2015Fungal}, and impact the success and dynamics of other organisms as pathogens\cite{Smith2008Mycorrhizal,Maron2011Soil} 
+It is significant to do meticulous study to fungus’ decomposition to the environment. 
+By means of understanding the influence factor to the decomposition rate of the fungus thoroughly, scholar can apply it into other microorganism, and it has positive effect on ecosystem research. 
+Recent research development have revealed that there are a considerable number of traits of fungi related to decomposition rate and certain traits link with each other\cite{Lustenhouwer11551}.
+In that paper, several characters of fungi were discussed in order to determine the influence of wood decomposition. 
+Researchers studied numerous traits associated with each fungus and tried to determine the role of these traits in wood block decomposition. 
+In particular, the researchers found that are better able to adapt to different ranges of water conditions also tend to decompose wood more slowly. 
+Fungi that grow faster and outperform other fungi tend to decompose wood faster\cite{Lustenhouwer11551}.
 
 \subsection{Our work}
-
+This paper will concentrate on two traits, the growth rate of fungus and the fungus’ tolerance to moisture. 
+Based on statistic data of three fungi species, we match this data with a same form of formula by interpolation and matching, which can describe the relationship between the fungus’ growth rate, the fungus’ tolerance to moisture and the decomposition rate accurately with a certain range. 
+Then this paper combines different species fungus together observe the composite effect of the decomposition to the ground litter. 
+It assigns a value to fungus called “ranking”. 
+This is the value to describe the competitive capacity of fungus, and we research the interaction between different species of fungus. 
+To research how the fungus and environment have influence with each other, This paper introduces more variables with respect to the environment and revise the formula concerned with the decomposition rate. 
+The effect of different environmental conditions on the decomposition rate of fungi were described more specifically. 
+And the analysis of different species combination to the environment change indicates the importance of the biodiversity.
+So this paper finally analyze the importance of the biodiversity to the whole environment when different degree of variations occur. 
+It will make some sense in the field of ecology.
 
 
 \section{Preparation of the Models}
@@ -59,7 +75,6 @@ For a single species of fungus\cite{Lustenhouwer11551}:
 
 With such condition, we can conclude two partial differential equations:
 \begin{equation}
-  \label{eq6}
   \left\{
   \begin{aligned}
   &\frac{\partial f}{\partial x}&=C_1\\
@@ -85,31 +100,78 @@ Thus:
 
 When it comes to multiple fungi, we put forward our fifth assumption:
 \begin{itemize}
-  \item The decomposition rate will change when the proportion of fungi changes.
+  \item The decomposition rate will change when the number of fungus changes.
 \end{itemize}
-Then, we also introduce another function of one specific fungus' proportion:
+Then, we also introduce another function of one specific fungus' number:
 \begin{equation}
   f=v(P)\cdot u(T)\cdot Ax\cdot e^{By}
 \end{equation}
 
+The last problem is that how to measure the decomposition rate.
+Martin Witkamp\cite{10.2307/1933765} measured it by calculating the emission of carbon dioxide.
+It reminded us of different measure method.
+And what we need to do is to uniform the standard.
+Thus, the last assumption is:
+\begin{itemize}
+  \item Every fungus decomposition rate can be measured by the amount of carbon dioxide released, and can also be translated into the mass loss of the raw material.
+\end{itemize}
+After that, we re-write $f$ in the form of $dm/dt$, where $m$ representsLustenhouwer11551 mass and $t$ represents time.
+
+\subsection{Data Collection}
+It is really hard to collect data for there are a lot of literature with different measurement indexes.
+Thanks to the paper from Daniel et al.\cite{maynard2019consistent}, we get lots of useful data.
+The relationship between fungi's decomposition rate and moisture niche width and the relationship between the decomposition rate and temperature.
+Then uniform the standard---Express the rate of decomposition with the rate of mass loss.
+
+Repeat such process with 5-6 papers, we finally get three fungi's data.
+
+\begin{itemize}
+  \item For fungus 1, $A=2.123,B=-0.4249$
+  \item For fungus 2, $A=1.877,B=0.5152$
+  \item For fungus 3, $A=3.553,B=0.7636$
+\end{itemize}
+
+For the correction factor, temperature and fungi's number, please check out in Appendix B for more information.
+We created correction factors for each species.
+
 \section{The Models}
+To build up the model, we figure out that it is easy to use object-oriented programming.
+
+We firstly set different objects for fungi.
+The fungi itself have many attributes: the inherent coefficients $A$ and $B$, the extension rate, the decomposition rate, the number of fungi.
+
+
+\subsection{Model 1}
+In this model, we try to figure out the decomposition rate of one specific fungus against time under proper temperature. 
+
+\subsection{Model 2}
+In this model, we try to figure out the interactions between the fungi.
 
 \section{Strengths and weaknesses}
 
 \subsection{Strengths}
+In this model, we set up two mutually related models, one is a single species, and the other is the community combination of multiple species.
+Not only can we clearly see the change in the rate of decomposition of individual species.
+There is also competition and dependence among multiple species, as well as changes in the rate of decomposition under community conditions.
+We can also clearly see that the decomposition rate of bacteria increases steadily at the beginning, and then after the density of species is saturated, the decomposition rate begins to decline rapidly.
+
+At the same time, we found many complex and effective and correct data, obtained our final mathematical formula through partial differential equations, and obtained models and images with tools such as MATLAB and Python, which were scientific and effective.
 
 
-% \begin{thebibliography}{99}
-% \bibitem{1} D.~E. KNUTH   The \TeX{}book  the American
-% Mathematical Society and Addison-Wesley
-% Publishing Company , 1984-1986.
-% \bibitem{2}Lamport, Leslie,  \LaTeX{}: `` A Document Preparation System '',
-% Addison-Wesley Publishing Company, 1986.
-% \bibitem{3}\url{https://www.latexstudio.net/}
-% \end{thebibliography}
+\subsection{Weaknesses}
+\begin{itemize}
+  \item We can't consider the death rate of each fungus, which means they grow in an almost ideal environment.
+  \item The environment has lots of factors that can influence the decomposition rate of fungi, we just consider the moisture and the temperature.
+  For instance, the light intensity can influence.
+  \item We were only looking at fungi that break down carbon, however, there are also fungi can break down nitrogen.
+  \item The shape of the colony may also affect the decomposition rate.
+\end{itemize}
+
 \medskip
+
 \bibliographystyle{unsrt}
 \bibliography{references}
+
 
 \begin{appendices}
 
@@ -119,6 +181,11 @@ Then, we also introduce another function of one specific fungus' proportion:
 
 % some more text \textcolor[rgb]{0.98,0.00,0.00}{\textbf{Input C++ source:}}
 % \lstinputlisting[language=C++]{./code/mcmthesis-sudoku.cpp}
-\lstinputlisting[language=python]{./code/Fungi_2.py}
+The class of \textcolor[rgb]{0.98,0,0}{\textbf{Fungi}} and \textcolor[rgb]{0.98,0,0}{\textbf{environment}} are as below:
+\lstinputlisting[language=python]{./code/Fungi.py}
+
+The \textcolor[rgb]{0.98,0,0}{\textbf{main code}} is as below:
+\lstinputlisting[language=python]{./code/main.py}
+
 \end{appendices}
 \end{document}
